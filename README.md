@@ -37,7 +37,7 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = ['127.0.0.1']
 
 # Auto-detect npm path (no hardcoding!)
-NPM_BIN_PATH = os.path.join(BASE_DIR, 'node_modules/.bin/npm')
+NPM_BIN_PATH = "/home/ahmad-hussain/.nvm/versions/node/v18.20.7/bin/npm"    # Check your path by running which npm or where npm
 
 
 # Static files
