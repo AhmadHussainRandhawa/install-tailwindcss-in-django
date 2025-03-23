@@ -1,5 +1,15 @@
 # Installing Tailwind CSS in Django
 
+[![Django](https://img.shields.io/badge/django-4.2-brightgreen)](https://www.djangoproject.com/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwind-3.3-38B2AC)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+## ✨ Features
+- Instant CSS hot-reloading
+- Production-optimized builds
+- Mobile-first responsive design
+- Cross-platform compatibility
+
 ```bash
 pip install django-tailwind 'django-tailwind[reload]'
 ```
@@ -37,7 +47,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Middleware (CRITICAL ORDER)
 MIDDLEWARE = [
-    # ...
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',  
     # ...
@@ -50,26 +60,24 @@ MIDDLEWARE = [
 Once the Django settings are configured, the next step is to set up **Node.js** and **Tailwind CSS**.  
 
 
-### 🔹Install Node.js
+### 🔹 Install Node.js
+1. Install nvm:
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-##### After installing `nvm`, you **MUST** restart the terminal.
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash | bash
-```  
-
-##### CLOSE/REOPEN TERMINAL BEFORE RUNNING:
-```bash
-nvm install 18 && nvm use 18
-```
+2. **Close and restart your terminal**
+3. Install Node.js
+    ```bash
+    nvm install 18 && nvm use 18
+    ```
 
 ### 🌟 Initialize Tailwind in Django
 
 Run the following commands step by step:
 
 ```bash
-python manage.py tailwind init         # Initializing the tailwind app. (Registeration 1st)
-mkdir -p theme/static                  # Create static directory
+python manage.py tailwind init theme   # Initializing the tailwind app. (Registeration 1st)
+mkdir -p theme/static                  # Required for CSS generation
 python manage.py tailwind install      # installs the actual Tailwind CSS framework using npm
 python manage.py tailwind start        # Starts the tailwind in the side terminal
 ```
@@ -128,3 +136,15 @@ Now, you can run both Django and Tailwind simultaneously with:
 ```bash
 npm run dev
 ```
+
+## 🚨 Troubleshooting
+
+| Issue                      | Solution                      |
+|----------------------------|-------------------------------|
+| Missing CSS                | Run `python manage.py tailwind install` |
+| Auto-reload not working    | Verify `INTERNAL_IPS` in settings |
+| NPM errors                 | Check `NPM_BIN_PATH` configuration |
+
+## Reach Me
+
+Feel free to connect with me on LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/ahmad-hussain-randhawa/) 
