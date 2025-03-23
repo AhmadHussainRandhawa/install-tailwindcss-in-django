@@ -76,7 +76,7 @@ Once the Django settings are configured, the next step is to set up **Node.js** 
 Run the following commands step by step:
 
 ```bash
-python manage.py tailwind init theme   # Initializing the tailwind app. (Registeration 1st)
+python manage.py tailwind init         # Initializing the tailwind app. (Press Enter again to accept by default theme app)
 mkdir -p theme/static                  # Required for CSS generation
 python manage.py tailwind install      # installs the actual Tailwind CSS framework using npm
 python manage.py tailwind start        # Starts the tailwind in the side terminal
