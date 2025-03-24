@@ -30,7 +30,6 @@ TAILWIND_DEV_MODE = DEBUG  # Auto-switches dev/prod modes
 INSTALLED_APPS = [
     # ...
     'tailwind',
-    'theme',  # Your Tailwind app
     'django_browser_reload',
 ]
 
@@ -85,6 +84,7 @@ Run the following commands step by step:
 
 ```bash
 python manage.py tailwind init         # Initializing the tailwind app. (Press Enter again to accept by default theme app)
+'theme',                               # Add the app name in settings.py below the 'tailwind', (under INSTALLED_APPS)
 mkdir -p theme/static                  # Required for CSS generation
 python manage.py tailwind install      # installs the actual Tailwind CSS framework using npm
 python manage.py tailwind start        # Starts the tailwind in the side terminal
